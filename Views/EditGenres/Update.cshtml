@@ -1,7 +1,11 @@
 ﻿@model Library.Models.Genre
 
 @using (Html.BeginForm("Update", "EditGenres", FormMethod.Post, new { id = "updateGenre" }))
-{    
-    @Html.TextBoxFor(model => model.Title, new { id = "genreTitle" });
+{   
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.Title, new { id = "genreTitle" })
+        @Html.ValidationMessageFor(model => model.Title)
+    </div>    
+    
     @Html.HiddenFor(mode => Model.Id);
 }

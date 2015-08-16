@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 
-namespace Library.Models
+namespace Library.Models.Dao.SQL_CE
 {
     public class InitDBData : DropCreateDatabaseIfModelChanges<LibraryEntities>
     {

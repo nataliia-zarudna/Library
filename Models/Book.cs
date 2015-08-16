@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace Library.Models
 {
@@ -9,8 +10,14 @@ namespace Library.Models
     {
         public int Id { get; set; }
         public int GenreID { get; set; }
+
+        [Required(ErrorMessage = "Book name must not be empty")]
         public string Title { get; set; }
+
+        [Required(ErrorMessage = "Author must not be empty")]
         public int AuthorID { get; set; }
+
+        [FileExtensions(Extensions = "pdf", ErrorMessage = "Please, choose PDF file")]
         public string Filepath { get; set; }
 
         public Genre Genre { get; set; }

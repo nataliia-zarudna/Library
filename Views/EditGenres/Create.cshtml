@@ -10,8 +10,7 @@
 
     <li>
         @Html.EditorFor(model => model.Title)
-        <input type="submit" value="[+]" />
-
         @Html.ValidationMessageFor(model => model.Title)
+        <input type="submit" value="[+]" />        
     </li>
 }

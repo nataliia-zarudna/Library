@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Library.Models;
+using Library.Models.Dao.SQL_CE;
 using System.Data.Entity;
 
 namespace Library

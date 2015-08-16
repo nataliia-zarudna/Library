@@ -33,9 +33,19 @@ namespace Library.Controllers
         [HttpPost]
         public ActionResult Create(Book book)
         {
-            BookDAO.Create(book);
+            if (ModelState.IsValid)
+            {
+                BookDAO.Create(book);
+                return RedirectToAction("GenreBooks", "EditGenres", new { genreID = book.GenreID });
 
-            return RedirectToAction("GenreBooks", "EditGenres", new { genreID = book.GenreID });
+            }
+            else
+            {
+                ViewBag.AuthorID = new SelectList(AuthorDAO.FindAll(), "Id", "LastName");
+                ViewBag.GenreID = new SelectList(GenreDAO.FindAll(), "Id", "Title", book.GenreID);
+
+                return View(book);
+            }           
         }
 
         public ActionResult Edit(int id)
@@ -51,9 +61,15 @@ namespace Library.Controllers
         [HttpPost]
         public ActionResult Edit(Book book)
         {
-            BookDAO.Update(book);
-
-            return RedirectToAction("GenreBooks", "EditGenres", new { genreID = book.GenreID });
+            if (ModelState.IsValid)
+            {
+                BookDAO.Update(book);
+                return RedirectToAction("GenreBooks", "EditGenres", new { genreID = book.GenreID });
+            }
+            else
+            {
+                return Edit(book.Id);
+            }
         }
 
         public ActionResult Delete(int id)

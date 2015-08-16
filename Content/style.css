@@ -11,7 +11,8 @@ body {
 /*---------------- Main structure --------------*/
 
 #container {
-	width: 885px;
+	width: 885px;    
+	height: 576px;
 	font-size: 1.2em;
 	background-image: url(images/container.jpg);
 	background-repeat: repeat-y;
@@ -276,4 +277,9 @@ textarea {
 	font-weight: bold;
 	font-family: "Times New Roman", Times, serif;
 	font-style: italic;
+}
+
+.field-validation-error {
+	color: #e22308;
+    font-weight: bold;
 }
