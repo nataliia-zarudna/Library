@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Library.Models.Genre>
+
+<div id="left_column">
+    <div class="left_column_boxes">
+        <h4>Genres</h4>
+        <div id="editgenrescontainer">
+            <ul id="genreslist">
+                @foreach (var genre in Model)
+                {
+                    <li>
+                        @Html.ActionLink(genre.Title, "GenreBooks", new { genreID = genre.Id })
+                        @Html.ActionLink("[x]", "Delete", new { id = genre.Id })
+                    </li>
+                }
+                <li>
+                    @{ Html.RenderPartial("Create", new ViewDataDictionary()); }
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+

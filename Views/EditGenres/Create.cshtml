@@ -1,0 +1,17 @@
+﻿@model Library.Models.Genre
+
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm("Create", "EditGenres"))
+{
+    @Html.ValidationSummary(true)
+
+    <li>
+        @Html.EditorFor(model => model.Title)
+        <input type="submit" value="[+]" />
+
+        @Html.ValidationMessageFor(model => model.Title)
+    </li>
+}

@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_Layout</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="@Url.Content("~/Content/style.css")" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/editLibrary.js")"></script>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <div id="navcontainer">
+                <ul id="navlist">
+                    <li id="active">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Library", "Index", "Library")</li>
+                    <li>@Html.ActionLink("Edit Library", "Index", "EditGenres")</li>
+                </ul>
+            </div>
+        </div>
+        <div id="sideheader"></div>
+
+        @if (Request.RawUrl.StartsWith("/Edit"))
+        {
+            Html.RenderAction("EditGenres", "EditGenres");
+        }
+        else
+        {
+            Html.RenderAction("Genres", "Library");
+        }
+
+        <div id="content">
+
+            @RenderBody()
+
+        </div>
+        <div id="footer"></div>
+    </div>
+    <div align="center">This template  downloaded form <a href='#'>free website templates</a></div>
+</body>
+</html>

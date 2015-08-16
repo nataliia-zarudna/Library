@@ -1,0 +1,12 @@
+﻿@model Library.Models.Book
+
+@{
+    ViewBag.Title = "BookDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Title</h2>
+<p>@Model.Author.FirstName @Model.Author.LastName</p>
+<p>
+    <a href="../../Books/@Model.Filepath" target="_blank">Read online</a>
+</p>

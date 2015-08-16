@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Library.Models.Book>
+
+@{
+    ViewBag.Title = "Books";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{Html.RenderPartial("Update", new ViewDataDictionary(ViewBag.Genre)); }
+<br />
+
+<ul>
+    @foreach (var book in Model)
+    {
+        <li>
+            @Html.ActionLink(book.Title, "Edit", "EditBooks", new { ID = book.Id }, new { })
+            @Html.ActionLink("[x]", "Delete", "EditBooks", new { id = book.Id }, new { })
+        </li>
+    }
+    
+    @Html.ActionLink("[+]", "Create", "EditBooks", new { genreID = ViewBag.Genre.Id }, new { })
+</ul>

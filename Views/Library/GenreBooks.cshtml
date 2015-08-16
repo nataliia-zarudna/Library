@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Library.Models.Book>
+
+@{
+    ViewBag.Title = "Books";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul>
+    @foreach (var book in Model)
+    {
+        <li>@Html.ActionLink(book.Title, "BookDetails", new { ID = book.Id })</li>
+    }
+</ul>

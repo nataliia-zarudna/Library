@@ -1,0 +1,7 @@
+﻿@model Library.Models.Genre
+
+@using (Html.BeginForm("Update", "EditGenres", FormMethod.Post, new { id = "updateGenre" }))
+{    
+    @Html.TextBoxFor(model => model.Title, new { id = "genreTitle" });
+    @Html.HiddenFor(mode => Model.Id);
+}

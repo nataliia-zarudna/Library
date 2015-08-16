@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Library.Models.Genre>
+
+<div id="left_column">
+    <div class="left_column_boxes">
+        <h4>Genres</h4>
+        <div id="genrescontainer">
+            <ul id="genreslist">
+                @foreach (var genre in Model)
+                {
+                    <li>
+                        @Html.ActionLink(genre.Title, "GenreBooks", new { genreID = genre.Id })
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
