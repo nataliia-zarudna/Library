@@ -37,7 +37,6 @@ namespace Library.Controllers
             {
                 BookDAO.Create(book);
                 return RedirectToAction("GenreBooks", "EditGenres", new { genreID = book.GenreID });
-
             }
             else
             {

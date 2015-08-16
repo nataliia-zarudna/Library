@@ -66,14 +66,9 @@ namespace Library.Controllers
             }
             else
             {
-                Genre searchedGenre = GenreDAO.FindByID(genre.Id);
-                ViewBag.Genre = searchedGenre;
-
-                List<Book> books = searchedGenre.Books;
-
+                ActionResult genderBooksView = GenreBooks(genre.Id);
                 ViewBag.Genre = genre;
-
-                return View("GenreBooks", books);
+                return genderBooksView;
             }
         }
 
